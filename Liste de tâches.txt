@@ -1,0 +1,5 @@
+1) fonction qui retourne une liste des synsets étant les synonyme du synset('kill') à tous les temps.
+2) fonction qui prend en paramètre une liste de Synset et qui retourne la liste de toutes les phrases du corpus ayant ces synsets
+3) fonction qui retourne qui est le sujet du verbe dans la phrase donnée.
+4) fonction qui retourne la date associée au verbe dans la phrase donnée.
+5) fonction qui retourne le lieu associé au verbe dans la phrase donnée. 
