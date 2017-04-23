@@ -53,16 +53,13 @@ def getTokensInSentences(phrases):
 	return phrasesTokenisees
 #phrasesTokenisees = getTokensInSentences(phrases)
 
-from fn2 import *
+#Pour tokenizer une chaine en mots :
+#tokens = word_tokenize(texte)
 
-#corpus = nltk.Text(word_tokenize())
+from fn2 import *
 texte=getTexte()
 phrases = getSentenceTokens(texte)
 
-
-#tokens = word_tokenize(texte)
-print("corpus monté")
-
 motsCherches=['murderer']
 bonnesPhrases = phrasesContenant(phrases, motsCherches)
-print(bonnesPhrases[motsCherches[0]][:4])
+#print(bonnesPhrases[motsCherches[0]][:4])
