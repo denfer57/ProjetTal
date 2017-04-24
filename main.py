@@ -1,23 +1,22 @@
 #!/bin/python3
 # -*- coding: utf-8 -*-
 
-#On importe le corpus
-#from nltk.corpus import PlaintextCorpusReader
-#wordlists = PlaintextCorpusReader('../../', 'Corpus.txt')
 
-#corpus = wordlists.words('Corpus.txt')
-
-#Rechercher dans text1 :
-#res = corpus.concordance("murderer")
-#import nltk, re, pprint
 from nltk import word_tokenize
 import nltk
+from fn1 import *
+from fn2 import *
+from fn3 import *
+from fn4 import *
+from fn5 import *
 
 def getTexte():
+	"""
+	Retourne une chaine de caractère contenant l'intégralité du corpus.
+	"""
 	f=open('Corpus.txt')
 	texte=f.read()
 	return texte
-
 
 def getSentenceTokens(texte):
 	"""
@@ -26,17 +25,6 @@ def getSentenceTokens(texte):
 	"""
 	tokenizer = nltk.data.load('tokenizers/punkt/english.pickle')
 	return tokenizer.tokenize(texte)
-
-#Recherche des synonymes
-from nltk.corpus import wordnet as wn
-def getSynonyms(word):
-	list=[]
-	for e in wn.synsets(word):
-		list+=e.lemma_names()
-	return list
-
-#print(getSynonyms('murderer'))
-#print(type(corpus)))
 
 def getTokensInSentences(phrases):
 	"""
@@ -56,10 +44,11 @@ def getTokensInSentences(phrases):
 #Pour tokenizer une chaine en mots :
 #tokens = word_tokenize(texte)
 
-from fn2 import *
 texte=getTexte()
 phrases = getSentenceTokens(texte)
 
-motsCherches=['murderer']
+motsCherches=synKill()
 bonnesPhrases = phrasesContenant(phrases, motsCherches)
+for phrase in bonnesPhrases:
+	print(getSubject(phrase),"a tué à la date",getDate(phrase),"dans le lieu",getPlace(phrase))
 #print(bonnesPhrases[motsCherches[0]][:4])

@@ -3,9 +3,7 @@
 from nltk.text import ConcordanceIndex
 def phrasesContenant_bkp(corpus, mots):
 	"""
-	corpus: corpus tokenisé en phrases (liste de chaines)
-	mots: liste de Synset
-	retourne: la liste de toutes les phrases du corpus contenant ces synsets
+	:DEPRECATED utiliser phrasesContenant() à la place
 	"""
 	print("début phrasesContenant()")
 	phrasesContenant = []
@@ -26,15 +24,21 @@ def phrasesContenant_bkp(corpus, mots):
 import nltk
 from nltk import word_tokenize
 def phrasesContenant(phrases, mots):
-	bonnesPhrases={}
-	tokenizer = nltk.data.load('tokenizers/punkt/english.pickle')
+	"""
+	:param phrases corpus tokenisé en phrases (liste de chaines)
+	:param mots Liste de Synset
+	retourne: la liste de toutes les phrases du corpus contenant ces synsets
+	"""
+	bonnesPhrases=[]
 	for phrase in phrases:
 		phraseTokenisee = word_tokenize(phrase)
 		for mot in mots:
 			if mot in phraseTokenisee:
-				try:
-					bonnesPhrases[mot].append(phraseTokenisee)
-				except:
-					bonnesPhrases[mot]=[]
-					bonnesPhrases[mot].append(phraseTokenisee)
+				#try:
+				bonnesPhrases.append(phrase)
+				#except:
+					#bonnesPhrases[mot]=[]
+					#bonnesPhrases[mot].append(phrase)
 	return bonnesPhrases
+
+#print(phrasesContenant(['I would like to be an hero.', 'I am the boss, right now.', 'Are you OK?', 'Follow me, I am the boss, I said!'], ['am', 'OK']))
